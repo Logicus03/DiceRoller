@@ -12,10 +12,15 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    // lateinit variable - to optimize code
+    lateinit var diceImage: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Set value here to avoid call it multiple times
+        diceImage = findViewById(R.id.dice_image)
         // Call function roll()
         rollDice()
     }
@@ -23,9 +28,8 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun rollDice(){
         val rollButton: Button = findViewById(R.id.roll_button)
-        val diceImage: ImageView = findViewById(R.id.dice_image)
 
-        rollButton.text = "Let's Roll"
+//        rollButton.text = "Let's Roll"
         rollButton.setOnClickListener {
             // Dynamic dice number resource
             val dice =
